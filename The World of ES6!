@@ -1,0 +1,274 @@
+/** 
+ * __NOTICE__: Taken as reference from OOPS! Studio! (@kaid_1044398692003664458698077) from his program "The World of ES6!"
+ * __DISCLAIMER__: I do not intend to break any guidelines through attempting to retrieve a resource through API. I take no claim or responsibility for any and all the following code.
+ */
+
+//Here's an online ES6 editor! It doesn't even require any downloading! I love it: https://codepen.io/bradleyboy/pen/vEeENy?editors=0012
+//Credit to Admiral βetasin and Stephen Waltz for helping me solve a glitch!
+smooth();
+textAlign(CENTER,CENTER);
+textFont(createFont("Trebuchet MS Bold"));
+
+var menus = {
+    Back: ["Introduction","Logic","Functions","Scope","Arrays","Loops","Iterators","Objects","Classes","Modules"],
+    Introduction: ["Introduction to ES6","Common Terms","Math Operators","Combining Math Operators","The Math Library","Variables","String Injection","Review: Introduction","Back"],
+    Logic: ["If Statements","Else Statements","Else If Statements","Review: Logic","Back"],
+    Functions: ["Functions","The Arrow Token","The Arrow Token++","Review: Functions","Back"],
+    Scope: ["Global Variables","Local Variables","Review: Scope","Back"],
+    Arrays: ["Arrays","Review: Arrays","Back"],
+    Loops: ["For Loops","While Loops","Review: Loops","Back"],
+    Iterators: [".forEach()",".map()",".filter()","Review: Iterators","Back"],
+    Objects: ["Objects","Review: Objects","Back"],
+    Classes: ["Constructors","Instances","Methods","Inheritance I","Inheritance II","Getters","Setters","Review: Classes","Back"],
+    Modules: ["Exporting Modules","Importing Modules","Review: Modules","Back"]
+};
+var courses = {
+    "Introduction to ES6": "(USE THE ARROW KEYS TO SCROLL)\n\nHello, and welcome to The World of ES6! ES6 stands for ECMAScript2015! The number 6 at the end doesn't refer to the year in which it was released, but the version of ECMAScript! The previouse version of ES6 is ES5! ES6 is an amazing language that I think everyone should learn! The first thing you're gunna learn is math operators! Then you can move on to Variables, Logic, Functions, Scope, Arrays, Loops, Iterators, Objects, Classes, and Modules! I hope you enjoy this course! But remember! Khan Academy doesn't support ES6, so the skills you learn here can only be applied in a ES6 environment!",
+    "Common Terms": "ES6: AKA ECMAScript2015, the most recent version of ECMAScript\nOperator: A symbol used to compute something\nEquation: A mixture of numbers and operators meant to compute something\nArray: A list of values\nObject: A block of variables defined under a name\nMethod: A function you call on an Object\nString: A sequence of keyboard characters enclosed in \"s\nBoolean: A true or false value\n`: I will use these symbols like quotes!",
+    "Math Operators": "In this lesson we will learn how to tell the computer to do math, and how to do the math! We will cover the following operators in the lesson: `+, -, *, and /` Let's start with the `+` operator! The + operator takes a number, and adds it to another number! You can use it like this: 10 + 3 (This equation will equal (=) 13 by adding 3 to 10)! Now let's talk about the `-` operator! The - operator also takes two numbers, but it works a little differently! You can use this operator like this: 10 - 3 (This equation will equal 7 by subtracting 3 from 10)! Now let's move on to the `*` operator! This operator takes 2 numbers! You can also use it like this: 10 * 3 (This equation will equal 30 by multiplying 10 by 3)! The `/` operator is the last operator we will cover in this lesson! It also takes 2 numbers! You can use it like this: 9 / 3 (This equation will equal 3 by deviding 9 by 3)!",
+    "Combining Math Operators": "In the previous lesson you learned about the different math operators and how to use them! In this lesson you will learn about combining math operators to make bigger/better equations! You will also learn how to layout your operators so that the computer knows what order you want them to be called in! Let's start by learning how to combine math operators! You may think that 5 + 5 / 2 equals 5 because 5 + 5 / 2 is basically 10 / 2 right? Well, that's actually not true! 5 + 5 / 2 equals 7.5! Because how the computer reads this as `start with five and add five devided by two` But how do we make the computer read this as `start with five add 5 and then devide the WHOLE thing by two` You can do this using `( and )` So to write the previous equation you could say: (5 + 5) / 2 Then the computer would FIRST add the two fives, THEN devide the sum by 2! You could do a much more complicated equation too! Like: 3 * (4 + 1) This equation equals 15, now imagine this without the `()s` Then this would equal 13! That may not seem like a huge difference, but it really is when it comes to programming!",
+    "The Math Library": "In this lesson we will learn how to use the Math library! It's very easy to use (Like all per-downloaded libraries)! To use a method out of the Math library just use `Math.nameOfMethod()` It's that simple! So let's learn a few methods from the Math library! The first we will cover is `Math.random()` This method will return a random number between 0 and 1! Pretty simple right? On KA you might be used to doing `random(min,max)` But that's just a made up function on KA! To use this in ES6 you would have to say `Math.random() * 50` That would return a random number between 1 and 50! But wait! You may be thinking `Just multipliying a number between 0 and 1 by 50 doesn't always make a whole number!` And you would be right! It doesn't! So that's where the `Math.round()` method comes in! This method will round a decimal number to the nearest whole number! So `Math.round(0.1)` Would equal 0 But `Math.round(0.5)` would equal 1! There are two other methods which I will cover very quickly! `Math.floor()` and `Math.ceil()` floor() rounds the number down to the nearest whole number, and ceil() rounds it up to the nearest whole number! Something to remember before the end of this tutorial, is that to use the Math library you MUST capitalize the M otherwise it will cause an error!",
+    Variables: ["In this lesson you will learn about defining variables, the different types of variables, data types, medifying variable values, and using variables! Let\'s start with defining a variable! To define a variable in ES6 you can use one of two key words: `let` or `const` Let\'s start with `let` to define a variable using `let` type the following code: `let nameOfVariable = someValue;` Let\'s break this code apart section by section!\n1. Notice we used the key word `let` what that key word does is tell the computer what type of variable to define! \n2. The next part is where the name of the variable goes! This is what you will refer to the variable by later in your code!\n3. Then we see an `=` sign! That sign is basically saying `Set this variable to some value`\n4. Then you put what value you want to assign to the variable! We\'ll talk more about that later, for now all you need to know is that that is where it goes!\n5. Finally we see a semicolon `;` What could that do? Well, it\'s actually not specific to defining variables! That simply tells the computer that that\'s the end of the command! If we didn\'t have that the computer would be very confused and might throw an error!\nSo now that we know how to define a variable using `let` let\'s talk about data types! There are three main data types! Numbers, Strings, and Booleans! There are more, but let\'s talk about these ones for now! To set a number value to a variable is simple! Simply say: `let nameOfVariable = 3;` You could replace the `3` with whatever number you want! To set a variable to a string is a bit more complex! You can do it like this: `let nameOfVariable = \"Whatever text you want in here! ^-^\"` Then you could put whatever you want in between the \"s! To set a variable equal to a boolean is simple! Just say: `let nameOfVariable = true;` You could also use `false` (Minus the quotes) in place of `true` (Minus the quotes) if you want the value to be false! Ok! So we covered a lot there, but there\'s still MORE! :O Get ready! Now let\'s talk about modifying variable\'s values! You can reset a variable\'s value just by typing: `nameOfVariable = newValue;` but what if I have a number in a variable that I want to add or subtract from? How do I do that without having to reset my variable from the ground up? Well you can do that using `+=, -=, *=, and /=` These four operators modify numbers! But be careful! These operators will not work on data types other than numbers! To add five to a variable holding a number just use: `nameOfVariable += 5;` You can replace the five with any other number if you want! Same with all the other operators! Use them the same way, but remember what each simbol does from the `Math Operators` lesson! They all have different functions, yet are used the same way! Whew! I really hope you\'re following me here, because I feal like this is getting tedious! BUT THERE\'S SO MUCH MORE!? Now let\'s talk about the other kind of variable! Variables defined with `let` can be modefied the way I just showed you! But what about that other variable type I was telling you about? `const` remember? Well if you define a variable with `const` it CAN NOT be modefied! You may be wondering how this is useful, but it will become clear with later lessons! So, to define a variable with `const` type the following: `const nameOfVariable = anyValue;` It\'s that simple! So now we know all about how to define/modify variables, now let\'s talk about USING variables! Using variables is super simple! Just say their name! So if I wanted to add a variable to a number you could do it like this: `5 + nameOfVariable` It\'s THAT simple! I hope you learned a lot in this lesson, and I also hope it wasn\'t really boring, and I also hope you understand that I\'m just a kid, so PLEASE DON\'T JUDGE MY GRAMMER/SPELLING/PUNCTUATION!? (However you spell that!) However, I would appreaciate knowing if I have any mistakes in my typing! You can tell me if I do in the Tips and Thanks section! So.... Drum roll please! I am going to ask you a little question at the end of some of these lessons to make sure you were listening! To answer a question type your answer in that dull-ly colored white box down there at the bottom of the screen, and press enter! If you get it right then it will tell you, if you don\'t... It will also tell you... But try to get it right on your first try!\nIn the answer box create a variable named `cookies` using `let` and set it equal to the number sixteen!","let cookies = 16;"],
+    "String Injection": ["In this lesson you will learn how to inject equations/variables into strings! The basic way to do it is to use a `+` sign! If that doesn't make any sence look at this example: Let's say `let favCookie = \"Chocolate Chip\"` so `\"My favorite type of cookie is \" + favCookie + \"! What's yours?\"` That string says: `My favorite type of cookie is Chocolate Chip! What's yours?` Isn't that cool? But it's kinda a hassle if you have a LOT of things you need injected, so is there an easier way? THERE IS! ES6 released a new way of doing it! So now you can just write it between `s instead of \"s! Then surround your variable names like so: `${nameOfVariable}` So to do the same thing we did with the `+`s we could do it like this: ``My favorite type of cookie is ${favCookie}! What's yours?`` Cool right? Just make sure you only use one ` on each side! Remember, the first one and the last one were just for clarity!\nImagine this variable `let myName = \"OOPS! Studio!\"` In the answer box write this string using that variable: `Hello! My name is OOPS! Studio!` And use the new ES6 method! Also make sure to surround it in `s! I hope this isn't too hard!","`hello! my name is ${myname}!`"],
+    "Review: Introduction": ["In this course we covered a LOT! Let's do some run overs! So we talked about how to use math operators, how to combine them, how to use the Math library, how to define/use/reset variables, some different types of variables, and combine strings/variables/equations!\nIn the answer box below, tell me what a true/false value is called!","boolean"]
+};
+var hover = false;
+var y = 30;
+var ty = 30;
+var menu = "Back";
+var tmenu = "Back";
+var scene = "menu";
+var tscene = "menu";
+var scroll = 0;
+var tscroll = 0;
+var keys = [];
+var pressed = 0;
+var correct = true;
+var f = 0;
+var showBox = false;
+
+keyPressed = function(){
+    keys[keyCode] = true;
+    pressed = keyCode;
+};
+
+keyReleased = function(){
+    keys[keyCode] = false;
+};
+
+{
+    var textBox = function(x,y,w){
+        this.x = x;
+        this.y = y;
+        this.w = w;
+        this.selected = false;
+        this.input = [];
+        this.draw = function() {
+            pushStyle();
+            textAlign(LEFT,CENTER);
+            textFont(createFont("monospace"));
+            fill(255,255,255);
+            stroke(0, 0, 0);
+            strokeWeight(1);
+            rect(this.x,this.y,this.w,30);
+            fill(0, 0, 0);
+            textSize(20);
+            if(frameCount % 100 < 50 && this.selected){
+                text(this.input.join("").substring(this.input.length - floor(this.w / 13)) + "|",this.x + 15,this.y + 15);
+            }else{
+                text(this.input.join("").substring(this.input.length - floor(this.w / 13)),this.x + 15,this.y + 15);
+            }
+            textAlign(CENTER,CENTER);
+            textFont(createFont("arial"));
+            if(pressed !== 0 && this.selected && pressed !== BACKSPACE && pressed !== SHIFT && pressed !== ENTER && pressed !== LEFT && pressed !== RIGHT && pressed !== UP && pressed !== DOWN && pressed !== CONTROL && pressed !== 20){
+                this.input.push(key);
+            }
+            if(pressed !== 0 && this.selected && pressed === BACKSPACE){
+                this.input.pop();
+            }
+            if(mouseX > this.x && mouseX < this.x + this.w && mouseY > this.y && mouseY < this.y + 30){
+                hover = true;
+                cursor("text");
+            }
+            popStyle();
+        };
+        this.onClick = function(){
+            if(mouseX > this.x && mouseX < this.x + this.w && mouseY > this.y && mouseY < this.y + 30){
+                this.selected = true;
+            }else{
+                this.selected = false;
+            }
+        };
+    };
+    
+    var codeBox = new textBox(100,360,200);
+}//Text Box
+
+var check = function(){
+    correct = courses[scene][1].toLowerCase() === codeBox.input.join("").toLowerCase();
+    f = 255;
+};
+
+draw = function() {
+    background(50);
+    
+    if(scene === "menu"){
+        textSize(40);
+        (fill)(0,50);
+        text(menu !== "Back" ? menu : "ECMAScript2015",200,38);
+        fill(255);
+        text(menu !== "Back" ? menu : "ECMAScript2015",200,35);
+        
+        pushStyle();
+        textAlign(LEFT,CENTER);
+        textSize(20);
+        menus[menu].forEach(function(arrItem,i){
+            noStroke();
+            if(mouseY > 75 + i * y && mouseY < 100 + i * y && mouseX < 280){
+                (fill)(0,150);
+                quad(0,80 + i * y,(i % 2 === 1 ? 296 : 284),80 + i * y,(i % 2 === 0 ? 300 : 280),100 + i * y,0,100 + i * y);
+                (fill)(255,150);
+                hover = true;
+                cursor("pointer");
+            }else{
+                (fill)(0,100);
+                quad(0,80 + i * y,(i % 2 === 1 ? 296 : 284),80 + i * y,(i % 2 === 0 ? 300 : 280),100 + i * y,0,100 + i * y);
+                (fill)(255,100);
+            }
+            quad(0,75 + i * y,(i % 2 === 1 ? 300 : 280),75 + i * y,(i % 2 === 0 ? 300 : 280),100 + i * y,0,100 + i * y);
+            (fill)(0,50);
+            text(arrItem,10,90 + i * y);
+            fill(255);
+            text(arrItem,10,87 + i * y);
+        });
+        popStyle();
+        
+        y += (ty - y) / 4;
+        if(y < 0.1){
+            ty = 30;
+            if(menu !== "Back" && tmenu !== "Back"){
+                scene = tscene;
+            }
+            menu = tmenu;
+            scroll = 10000;
+            tscroll = 0;
+            codeBox.input = [];
+        }
+    }else{
+        textSize(30);
+        (fill)(0,50);
+        text(scene,200,scroll + 28);
+        fill(255,200,0);
+        text(scene,200,scroll + 25);
+        stroke(255);
+        strokeWeight(2);
+        line(0,scroll + 50,400,scroll + 50);
+        pushStyle();
+        textAlign(CENTER,TOP);
+        textSize(17);
+        (fill)(0,50);
+        text(showBox ? courses[scene][0] : courses[scene],25,scroll + 63,350,10000);
+        fill(255);
+        text(showBox ? courses[scene][0] : courses[scene],25,scroll + 60,350,10000);
+        popStyle();
+        scroll += (tscroll - scroll) / 5;
+        fill(50);
+        noStroke();
+        rect(0,350,400,50);
+        if(showBox){
+            codeBox.draw();
+        }
+        if(mouseX > 5 && mouseX < 80 && mouseY > 355 && mouseY < 395){
+            (fill)(255,100);
+            hover = true;
+            cursor("pointer");
+        }else{
+            (fill)(255,50);
+        }
+        (stroke)(255,100);
+        strokeWeight(5);
+        rect(5,355,75,40);
+        if(showBox){
+            if(mouseX > 320 && mouseX < 395 && mouseY > 355 && mouseY < 395){
+                (fill)(255,100);
+                hover = true;
+                cursor("pointer");
+            }else{
+                (fill)(255,50);
+            }
+            rect(320,355,75,40);
+        }
+        textSize(25);
+        (fill)(0,50);
+        text("Back",42.5,378);
+        if(showBox){
+            text("Enter",357.5,378);
+        }
+        fill(255);
+        text("Back",42.5,375);
+        if(showBox){
+            text("Enter",357.5,375);
+        }
+        if(keys[UP] && tscroll < 0){
+            tscroll += 3;
+        }
+        if(keys[DOWN]){
+            tscroll -= 3;
+        }
+    }
+    
+    (stroke)(255,f / 1.5);
+    strokeWeight(5);
+    (fill)(255,f / 1.5);
+    rect(100,150,200,100);
+    if(f > 0){
+        pushStyle();
+        textAlign(CENTER,CENTER);
+        textSize(30);
+        (fill)(0,f / 5);
+        text(correct ? "Correct!" : "Incorrect!",200,203);
+        fill(correct ? 0 : 255,correct ? 255 : 0,0,f);
+        text(correct ? "Correct!" : "Incorrect!",200,200);
+        popStyle();
+    }
+    
+    f -= 5;
+    
+    if(!hover){
+        cursor("auto");
+    }
+    hover = false;
+    pressed = 0;
+    
+};
+
+mouseClicked = function(){
+    if(scene === "menu"){
+        menus[menu].forEach(function(arrItem,i){
+            if(mouseY > 75 + i * y && mouseY < 100 + i * y && mouseX < 280){
+                ty = 0;
+                if(arrItem !== "Back"){
+                    if(menu === "Back"){
+                        tmenu = arrItem;
+                    }else{
+                        tscene = arrItem;
+                    }
+                }else{
+                    tmenu = arrItem;
+                }
+                showBox = Array.isArray(courses[tscene]);
+                return;
+            }
+        });
+    }else{
+        if(mouseX > 5 && mouseX < 80 && mouseY > 355 && mouseY < 395){
+            scene = "menu";
+        }
+        if(showBox){
+            if(mouseX > 320 && mouseX < 395 && mouseY > 355 && mouseY < 395){
+                check();
+            }
+            codeBox.onClick();
+        }
+    }
+};
